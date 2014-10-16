@@ -11,7 +11,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C 2>&1
 RUN apt-get -qy update && apt-get -qy install nginx-full && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /etc/service/nginx
-COPY scripts/service-nginx.sh /etc/service/nginx/run
+COPY build/service-nginx.sh /etc/service/nginx/run
 
 EXPOSE 80
 
