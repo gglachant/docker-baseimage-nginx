@@ -2,7 +2,6 @@ FROM phusion/baseimage:0.9.15
 
 MAINTAINER Gabriel Glachant <gglachant@gmail.com>
 
-ENV UBUNTU_ADJECTIVE trusty
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 ENV NGINX_PACKAGE_VERSION 1.6.2-4+trusty0
