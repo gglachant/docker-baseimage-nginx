@@ -1,10 +1,10 @@
-FROM phusion/baseimage:0.9.15
+FROM phusion/baseimage:0.9.18
 
 MAINTAINER Gabriel Glachant <gglachant@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
-ENV NGINX_PACKAGE_VERSION 1.6.2-4+trusty0
+ENV NGINX_PACKAGE_VERSION 1.8.0-1+trusty1
 
 RUN add-apt-repository -y ppa:nginx/stable && \
 	apt-get -qy update && \
