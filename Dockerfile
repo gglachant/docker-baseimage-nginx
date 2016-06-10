@@ -2,12 +2,10 @@ FROM phusion/baseimage:0.9.18
 
 MAINTAINER Gabriel Glachant <gglachant@gmail.com>
 
-# Remove it. Add it when running apt-get only.
-# ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
-ENV NGINX_PACKAGE_VERSION 1.8.1-1+trusty0
 
-RUN echo '#!/bin/sh' > /usr/sbin/policy-rc.d \
+RUN \
+ echo '#!/bin/sh' > /usr/sbin/policy-rc.d \
  && echo 'exit 101' >> /usr/sbin/policy-rc.d \
  && chmod +x /usr/sbin/policy-rc.d \
  \
@@ -31,10 +29,11 @@ RUN echo '#!/bin/sh' > /usr/sbin/policy-rc.d \
 # Fully update the system
 # RUN apt-get update && apt-get -y upgrade && apt-get autoremove && apt-get clean
 
-RUN export DEBIAN_FRONTEND=noninteractive \
+RUN \
+ DEBIAN_FRONTEND=noninteractive \
  && add-apt-repository -y ppa:nginx/stable \
  && apt-get -qy update \
- && apt-get -qy install nginx-full=$NGINX_PACKAGE_VERSION \
+ && apt-get -qy install nginx-full \
  && apt-get -qy clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
